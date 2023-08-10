@@ -1,0 +1,326 @@
+[gd_scene load_steps=28 format=3 uid="uid://cg8ym1sun6c7n"]
+
+[ext_resource type="Script" path="res://frog.gd" id="1_cfbtt"]
+[ext_resource type="Texture2D" uid="uid://b48eoqs5n2gxj" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/sprites/frog/idle/frog-idle-1.png" id="1_qq3js"]
+[ext_resource type="Texture2D" uid="uid://ccn5b5xkgcq3b" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/sprites/enemy-death/enemy-death-1.png" id="2_2ol7w"]
+[ext_resource type="Texture2D" uid="uid://useoa77hmtce" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/sprites/frog/idle/frog-idle-2.png" id="2_e1srf"]
+[ext_resource type="Material" uid="uid://dol6o00furbi7" path="res://HitBlink/hit_blink.tres" id="2_x45k6"]
+[ext_resource type="Texture2D" uid="uid://1bw1yjojt76x" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/sprites/frog/idle/frog-idle-3.png" id="3_hj8o4"]
+[ext_resource type="Texture2D" uid="uid://cmwipelr3v3b5" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/sprites/enemy-death/enemy-death-2.png" id="3_nkje1"]
+[ext_resource type="Texture2D" uid="uid://brjbgtppsksbs" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/sprites/frog/idle/frog-idle-4.png" id="4_7poqp"]
+[ext_resource type="Texture2D" uid="uid://bh0xug51ciinp" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/sprites/enemy-death/enemy-death-3.png" id="4_f8d32"]
+[ext_resource type="Texture2D" uid="uid://chieg5dir8bc2" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/sprites/enemy-death/enemy-death-4.png" id="5_0gp6j"]
+[ext_resource type="Texture2D" uid="uid://bvjtk6iuf6j22" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/sprites/frog/jump/frog-jump-1.png" id="5_68kr4"]
+[ext_resource type="Texture2D" uid="uid://6m8ph2qkhhot" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/sprites/frog/jump/frog-jump-2.png" id="6_3lsmh"]
+[ext_resource type="Texture2D" uid="uid://bfgo0q80xpv1i" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/sprites/enemy-death/enemy-death-5.png" id="6_s70pv"]
+[ext_resource type="Texture2D" uid="uid://d4a8fo6i4gm46" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/sprites/enemy-death/enemy-death-6.png" id="7_ntd6d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wvp4h"]
+size = Vector2(16, 14)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pfpho"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2ol7w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_nkje1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_f8d32")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_0gp6j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_s70pv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ntd6d")
+}],
+"loop": true,
+"name": &"Death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_hj8o4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_qq3js")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_e1srf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7poqp")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_qq3js")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_68kr4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_3lsmh")
+}],
+"loop": false,
+"name": &"Jump",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_qps8f"]
+resource_name = "Death"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Death"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_s8va8"]
+resource_name = "Idle"
+length = 1.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0, 0, 1, 2, 2, 3, 0, 1, 2, 2, 1, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [&"Idle"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_v41vi"]
+resource_name = "Jump"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Jump"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, -5), Vector2(0, -3.902), Vector2(0, -1.951), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rl0ty"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Idle"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_raycn"]
+_data = {
+"Death": SubResource("Animation_qps8f"),
+"Idle": SubResource("Animation_s8va8"),
+"Jump": SubResource("Animation_v41vi"),
+"RESET": SubResource("Animation_rl0ty")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8x0jj"]
+radius = 112.018
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iubh6"]
+size = Vector2(14, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ioyie"]
+size = Vector2(56, 12)
+
+[sub_resource type="Animation" id="Animation_7eejs"]
+resource_name = "Hit"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/isActivated")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_m22bs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/isActivated")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mtith"]
+_data = {
+"Hit": SubResource("Animation_7eejs"),
+"RESET": SubResource("Animation_m22bs")
+}
+
+[node name="Frog" type="CharacterBody2D"]
+position = Vector2(-63, 0)
+script = ExtResource("1_cfbtt")
+
+[node name="MainCollider" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 3)
+shape = SubResource("RectangleShape2D_wvp4h")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = ExtResource("2_x45k6")
+sprite_frames = SubResource("SpriteFrames_pfpho")
+animation = &"Idle"
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Idle"
+libraries = {
+"": SubResource("AnimationLibrary_raycn")
+}
+
+[node name="PlayerDetection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
+shape = SubResource("CircleShape2D_8x0jj")
+
+[node name="FrogWeakpoint" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FrogWeakpoint"]
+position = Vector2(-1, -5)
+shape = SubResource("RectangleShape2D_iubh6")
+
+[node name="FrogAttackRange" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FrogAttackRange"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_ioyie")
+
+[node name="HitBlink" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_mtith")
+}
+
+[connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
+[connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]
+[connection signal="body_entered" from="FrogWeakpoint" to="." method="_on_frog_weakpoint_body_entered"]
+[connection signal="body_entered" from="FrogAttackRange" to="." method="_on_frog_attack_range_body_entered"]

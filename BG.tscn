@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://dkq7cwlptgk0d"]
+
+[ext_resource type="Texture2D" uid="uid://cd8i5yvk01dqp" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/environment/layers/back.png" id="1_boixj"]
+[ext_resource type="Script" path="res://BG.gd" id="1_ovdei"]
+[ext_resource type="Texture2D" uid="uid://d0lyiuagqus8m" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/environment/layers/middle.png" id="3_8a6mo"]
+[ext_resource type="Texture2D" uid="uid://cb5ili2t0n217" path="res://Sunny Land houses/Sunny Land Trees Props Pack/Props PNG/plant-house.png" id="3_ik6aa"]
+
+[node name="BG" type="ParallaxBackground"]
+script = ExtResource("1_ovdei")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Back" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(582.8, 366.25)
+scale = Vector2(3.01458, 3.01458)
+texture = ExtResource("1_boixj")
+
+[node name="Houses" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.5, 1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Plant-house" type="Sprite2D" parent="Houses"]
+position = Vector2(40, 400)
+texture = ExtResource("3_ik6aa")
+
+[node name="Plant-house2" type="Sprite2D" parent="Houses"]
+position = Vector2(320, 424)
+texture = ExtResource("3_ik6aa")
+
+[node name="Plant-house3" type="Sprite2D" parent="Houses"]
+position = Vector2(696, 400)
+scale = Vector2(1.12136, 1.12136)
+texture = ExtResource("3_ik6aa")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.7, 1)
+motion_mirroring = Vector2(1054, 0)
+
+[node name="Middle" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(82, 528)
+texture = ExtResource("3_8a6mo")
+
+[node name="Middle2" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(258, 528)
+texture = ExtResource("3_8a6mo")
+
+[node name="Middle3" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(434, 528)
+texture = ExtResource("3_8a6mo")
+
+[node name="Middle4" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(608, 528)
+texture = ExtResource("3_8a6mo")
+
+[node name="Middle5" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(784, 528)
+texture = ExtResource("3_8a6mo")
+
+[node name="Middle6" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(960, 528)
+texture = ExtResource("3_8a6mo")
